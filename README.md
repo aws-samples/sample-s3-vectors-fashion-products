@@ -126,13 +126,13 @@ Streamlit UI (Text/Image Search)
        {
          "Effect": "Allow",
          "Action": ["s3:GetObject"],
-         "Resource": ["arn:aws:s3:::your-dataset-bucket/*", "arn:aws:s3:::*"]
+         "Resource": ["arn:aws:s3:::<replace-with-your-dataset-bucket>/*", "arn:aws:s3:::*"]
        }
      ]
    }
    ```
 
-   **Note**: Replace `your-dataset-bucket` with your actual S3 bucket name containing the dataset. The S3 permission is only needed if you're using S3 for dataset storage (`DATASET_CSV_PATH=s3://...`) or image hosting (`DATASET_IMAGES_LOCATION=S3`).
+   **Note**: Replace `<replace-with-your-dataset-bucket>` with your actual S3 bucket name containing the dataset. The S3 permission is only needed if you're using S3 for dataset storage (`DATASET_CSV_PATH=s3://...`) or image hosting (`DATASET_IMAGES_LOCATION=S3`).
 
 ## 📊 Usage
 
