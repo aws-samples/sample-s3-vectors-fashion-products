@@ -81,7 +81,7 @@ Streamlit UI (Text/Image Search)
    DATASET_IMAGES_LOCATION=WEB
 
    # Path to dataset CSV files (local or S3)
-   DATASET_CSV_PATH=s3://your-dataset-bucket
+   DATASET_CSV_PATH=<s3://replace-with-your-dataset-bucket>
 
    # Parallel processing workers (adjust based on your system)
    MAX_WORKERS=50
