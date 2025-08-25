@@ -64,7 +64,7 @@ Streamlit UI (Text/Image Search)
 1. **Clone and navigate to the project**:
 
    ```bash
-   cd s3-vectors-fashion-products
+   cd sample-s3-vectors-fashion-products
    ```
 
 2. **Install dependencies**:
