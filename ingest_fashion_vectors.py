@@ -104,7 +104,7 @@ def process_batch(batch):
                 )
                 ingested_count += 1
             except Exception as e:
-                print(f"Error with vector {vector['key']}: {str(e)}")
+                print(f"Error ingesting a vector: {str(e)}")
 
 # Process the dataset in batches
 for index, row in dataset.iterrows():
