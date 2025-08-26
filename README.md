@@ -230,7 +230,7 @@ docker build -t s3-vector-fashion-app .
 ### Dataset Image Location
 
 - **WEB**: Uses Kaggle-hosted public image URLs (default, no additional storage needed)
-- **S3**: Requires uploading ~15GB of images to your S3 bucket for faster access
+- **S3**: Requires uploading ~15GB of images to your S3 bucket
 
 ### Performance Tuning
 
