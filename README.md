@@ -53,7 +53,7 @@ Streamlit UI (Text/Image Search)
   - Contains two csv files (styles.csv, images.csv) and images folder
   - You can host the two csv locally or on S3 bucket
   - **The images are publicly hosted by Kaggle so it's not required to download the entire dataset only the two csv files!**
-  - An alternative aproch can also copy the images manually to your bucket and use them from your bucket but this is not neceserry (using DATASET_IMAGES_LOCATION)
+  - An alternative approach can also copy the images manually to your bucket and use them from your bucket, but this is not necessary (using DATASET_IMAGES_LOCATION)
 - **Where to run this code?**
   - This is meant to be run locally from your PC or on EC2
   - The Streamlit application uses port 8501
