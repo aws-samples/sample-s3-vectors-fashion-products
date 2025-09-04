@@ -47,7 +47,7 @@ Streamlit UI (Text/Image Search)
   - Amazon Bedrock (Titan model)
   - Amazon S3 Vectors
   - S3 (for dataset storage although not a must)
-- Python 3.8+
+- Python 3.13+
 - Fashion Product Images Dataset from Kaggle
   - You can download from here [Fashion Product Images Dataset](https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset)
   - Contains two csv files (styles.csv, images.csv) and images folder

@@ -16,12 +16,12 @@ S3_VECTOR_INDEX_NAME = os.environ.get("S3_VECTOR_INDEX_NAME")
 
 def main():
     st.set_page_config(
-        page_title="S3 Vector Search App",
+        page_title="S3 Vector Search",
         page_icon="🔍",
         layout="wide"
     )
     
-    st.title("🔍 S3 Vector Search App")
+    st.title("🔍 S3 Vector Search")
     st.markdown("Search for similar items in the catalog using natural language descriptions or by uploading an image...")
     
     # Sidebar for configuration
