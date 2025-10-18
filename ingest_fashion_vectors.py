@@ -34,6 +34,7 @@ except s3vectors.exceptions.ConflictException:
 
 # read the dataset from csv
 dataset = pd.read_csv(dataset_filename)
+dataset["year"] = dataset["year"].apply(lambda x: str(int(x)) if pd.notnull(x) else "")
 
 start_time = time.time()
 print("Starting ingesting...")
