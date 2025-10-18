@@ -35,7 +35,6 @@ Streamlit UI (Text/Image Search)
 ├── ingest_fashion_vectors.py              # Create S3 vector bucket/index and ingest data
 ├── utils.py                               # Helper functions for embeddings and search
 ├── streamlit_app.py                       # Main Streamlit web application
-├── run_streamlit.sh                       # Script to launch the Streamlit app
 └── README.md                              # This file
 ```
 
@@ -119,7 +118,9 @@ Streamlit UI (Text/Image Search)
            "s3vectors:CreateVectorBucket",
            "s3vectors:CreateIndex",
            "s3vectors:PutVectors",
-           "s3vectors:QueryVectors"
+           "s3vectors:QueryVectors",
+           "aws-marketplace:Subscribe",
+           "aws-marketplace:ViewSubscriptions"
          ],
          "Resource": "*"
        },
@@ -179,7 +180,7 @@ This script:
 Start the interactive search interface:
 
 ```bash
-./run_streamlit.sh
+streamlit run streamlit_app.py
 ```
 
 - This is meant to be run locally on your PC or on EC2.

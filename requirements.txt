@@ -1,6 +1,5 @@
 streamlit==1.46.0
 boto3>=1.39.9
-sagemaker==2.237.3
 pillow==11.3.0
 pandas==2.3.2
 numpy==1.26.4

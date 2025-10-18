@@ -6,8 +6,6 @@ COPY requirements.txt requirements.txt
 
 RUN pip install -r requirements.txt
 
-RUN mkdir -p ./data/images
-
 COPY streamlit_app.py streamlit_app.py
 COPY utils.py utils.py
 COPY .env .env

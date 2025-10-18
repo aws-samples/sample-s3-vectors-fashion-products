@@ -21,7 +21,7 @@ s3_client = boto3.client('s3')
 def process_single_image(args):
     idx, path = args
     try:
-        embedding = get_titan_multimodal_embedding(image_path=path, dimension=1024)["embedding"]
+        embedding = get_titan_multimodal_embedding({"image_path": path})
     except Exception as e:
         print(f"Error processing row {idx + 2} with path '{path}': {str(e)}")
         embedding = 0
@@ -50,7 +50,8 @@ else: # In case we want to serve the images from their public location by Kaggle
     dataset['img_full_path'] = dataset['link']
     dataset.drop('link', axis=1, inplace=True)
 
-print(dataset)
+dataset["year"] = dataset["year"].apply(lambda x: str(int(x)) if pd.notnull(x) else "")
+print(dataset.info())
 
 # Print the dataframe head
 print("DataFrame head:")
@@ -72,9 +73,29 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
     for i, future in enumerate(tqdm(concurrent.futures.as_completed(future_to_idx), 
                                    total=len(tasks), 
                                    desc="Processing images")):
-        idx, embedding = future.result()
+        try:
+            # Wait up to 60 seconds for each future to complete
+            idx, embedding = future.result(timeout=60)
+
+        except concurrent.futures.TimeoutError:
+            # Handle tasks that take too long
+            idx = future_to_idx[future]
+            embedding = 0
+            print(f"[Timeout] Image index {idx} took longer than 60s — skipping.", flush=True)
+
+        except Exception as e:
+            # Handle any other errors (e.g., model or I/O errors)
+            idx = future_to_idx[future]
+            embedding = 0
+            print(f"[Error] Image index {idx} failed: {e}", flush=True)
+
+        # Store even fallback embeddings to preserve array length
         multimodal_embeddings_img[idx] = embedding
 
+
+print ("Generating dataset...")
 dataset = dataset.assign(embedding_img=multimodal_embeddings_img)
+
 # Store dataset
+print ("Saving dataset...")
 dataset.to_csv('dataset.csv', index = False)
