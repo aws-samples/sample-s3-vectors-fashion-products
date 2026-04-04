@@ -229,7 +229,7 @@ def main():
         if results:
             st.success(f"Found {len(results)} similar items! (Query time: {query_time_ms:.2f} ms)")
 
-            # Sort results by distance score (lowest to highest - lower is more similar)
+            # Sort results by distance
             sorted_results = sorted(results, key=lambda x: x['distance'], reverse=False)
             
             # Display results in rows of 3 columns
@@ -276,7 +276,7 @@ def main():
                                 st.error(f"Error loading image: {str(e)}")
                             
                             st.markdown(f"**Item Name:** {item_name}")
-                            st.markdown(f"**Score:** {distance:.4f}")
+                            st.markdown(f"**Distance:** {distance:.4f}")
                             st.markdown("---")
         else:
             st.warning("No results found. Try a different search query/image/filter.")

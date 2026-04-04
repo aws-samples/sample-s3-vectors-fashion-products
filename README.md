@@ -217,14 +217,13 @@ docker build -t s3-vector-fashion-app .
 - Product names and descriptions
 - Categories (gender, master category, sub category)
 - Attributes (color, season, usage, year)
-- Similarity scores
 - Product images (from Kaggle or S3)
 
 ### Performance Metrics
 
 - Real-time query execution times
 - Configurable result count (1-30 items)
-- Sorted results by similarity score
+- Sorted results by distance
 
 ## ⚙️ Configuration Options
 
