@@ -1,6 +1,6 @@
 streamlit==1.54.0
 boto3>=1.39.9
-pillow==12.1.1
+pillow==12.2.0
 pandas==2.3.2
 numpy==1.26.4
 python-dotenv==1.1.1
